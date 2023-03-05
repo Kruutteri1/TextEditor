@@ -157,13 +157,12 @@ public class TextEditor extends JFrame implements ActionListener {
 
                 file = fileChooser.getSelectedFile().getName();
 
-                if (!file.endsWith(".txt")) { // Checking if the file has a format and add format if file has not a format (default - .txt)
+                if (!file.endsWith(".txt")) { // Checking if the file has a format and add format if file has not a format (default - .txt).
                     file = String.valueOf(new File(fileChooser.getSelectedFile().getAbsolutePath() + ".txt"));
                 } else {
                     file = String.valueOf(new File(fileChooser.getSelectedFile().getAbsolutePath()));
                 }
-                
-                
+
                 try {
                     fileOut = new PrintWriter(file);
                     fileOut.println(textArea.getText());
