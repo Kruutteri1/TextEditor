@@ -152,10 +152,18 @@ public class TextEditor extends JFrame implements ActionListener {
             int response = fileChooser.showSaveDialog(null); // open save window chooser
 
             if (response == JFileChooser.APPROVE_OPTION) { // user choose where save file
-                File file;
+                String file;
                 PrintWriter fileOut = null; // writes the contents of the JTextArea to the selected file using the println method.
 
-                file = new File(fileChooser.getSelectedFile().getAbsolutePath() + ".txt"); // at last add format (.txt)
+                file = fileChooser.getSelectedFile().getName();
+
+                if (!file.endsWith(".txt")) { // Checking if the file has a format and add format if file has not a format (default - .txt)
+                    file = String.valueOf(new File(fileChooser.getSelectedFile().getAbsolutePath() + ".txt"));
+                } else {
+                    file = String.valueOf(new File(fileChooser.getSelectedFile().getAbsolutePath()));
+                }
+                
+                
                 try {
                     fileOut = new PrintWriter(file);
                     fileOut.println(textArea.getText());
