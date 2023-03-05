@@ -14,7 +14,6 @@ import java.util.Scanner;
 
 public class TextEditor extends JFrame implements ActionListener {
 
-
     // main element of program
     JTextArea textArea;
     JScrollPane scrollPane;
